@@ -60,17 +60,13 @@ spring:
       on-profile: prod
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/emsdb
+    url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
-    username: ems_user
-    password: ems_password
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASS}
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  sql:
-    init:
-      mode: never
